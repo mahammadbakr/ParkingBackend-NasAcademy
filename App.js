@@ -1,8 +1,7 @@
-const http = require('http');
 const express=require('express')
 var bodyParser = require('body-parser');
 const rateLimitHandler = require("./RateHandling/RateLimitHandler");
-require('dotenv').config({ path: './.env' }); //environment variable 
+require('dotenv').config({ path: './.env' }); 
 
 const app=express();
 
@@ -16,12 +15,10 @@ app.use(limiter);
 
 ////Handle API Routing
 const router=require('./Router/Router')
-app.use('',router)
+app.use('/api/v1',router)
 
 const port = process.env.Port;
 
 app.listen(port, () => {
   console.log(`Server running at Port: ${port}/`);
 });
-
-// access .env with => process.env.NODE_ENV 

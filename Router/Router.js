@@ -5,9 +5,9 @@ const {
 
 
 router
-    .post('/api/v1/park', parkNewCar)
-    .post('/api/v1/unpark', unParkACar)
-    .get('/api/v1/cars', getCars)
-    .get('/api/v1/carbyslot',getCarBySlotNumber)
+    .post('/park', parkNewCar)
+    .post('/unpark', unParkACar)
+    .get('/cars', getCars)
+    .get('/arbyslot',getCarBySlotNumber)
 
 module.exports = router
