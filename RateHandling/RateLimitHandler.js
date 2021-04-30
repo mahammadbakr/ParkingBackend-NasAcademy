@@ -1,3 +1,5 @@
+require('dotenv').config({ path: './.env' });
+
 
 function RateLimitHandler(assets) {
   assets = Object.assign(
@@ -12,8 +14,8 @@ function RateLimitHandler(assets) {
         res.status(assets.statusCode).send(assets.message);
       },
       onLimitReached: function () {},
-      windowMs: 10000, // 10000 Milliseconds (10 Seconds) until get Timeout
-      max: 10, // 10 Requests per milliseconds before timeout
+      windowMs: process.env.Seconds * 1000, // e.g: 10000 Milliseconds (10 Seconds) until get Timeout
+      max: process.env.Max_Requests, // e.g:  10 Requests per milliseconds before timeout
       message: "There is Too many requests, please try again later.", //Message when time is out
       statusCode: 429, //There is Too many requests Error Code[429]
       headers: true, //Send and customize rate limit header
