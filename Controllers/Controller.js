@@ -1,6 +1,8 @@
 var CarSlot = require('./../Models/CarSlot');
-require('dotenv').config({ path: './.env' }); //environment variable 
+require('dotenv').config({ path: './.env' });
 
+
+//############## Post A New Car Route
 
 exports.parkNewCar = async (req, res) =>{
   try {
@@ -43,12 +45,11 @@ async function checkSlotAvailable  (req,res) {
 
 
 
-
+//############## Post Unpark A Car Route
 
   exports.unParkACar = async (req, res) => {
     try {
       await unParkSlot(req,res);  
-
      } catch (error) {
        res.status(400).json({
          status: 400,
@@ -56,7 +57,6 @@ async function checkSlotAvailable  (req,res) {
          error,
        });
      }
-
   };
 
 
@@ -65,15 +65,21 @@ async function checkSlotAvailable  (req,res) {
     // var carNumber =  req.body.carNumber;
 
     //Check if slot list not empty & not full & slot number not bigger than size
-    if (carSlotsList !== 0 && slotNumber < process.env.Slot_Size && slotNumber <carSlotsList.length) {
-  
-      // carSlotsList.pop(slotNumber);
-      // removeSlotBySlotNumber(slotNumber);
-    
-      res.status(200).json({
-        status: 200,
-        message:"UnPark the car had been Successfully !",
-      });
+    if (carSlotsList !== 0 || slotNumber < process.env.Slot_Size || slotNumber >carSlotsList.length) {
+      //check is current slot number is empty or not
+      if(carSlotsList[slotNumber] === null || carSlotsList[slotNumber] === ""){
+        res.status(200).json({
+          status: 400,
+          message:"This Slot Number is empty !",
+        });
+      }else{
+        // Unpark is Done
+        removeSlotBySlotNumber(slotNumber);
+        res.status(200).json({
+          status: 200,
+          message:"UnPark the car had been Successfully !",
+        });
+      }
     }else{
       res.status(400).json({
         status: 400,
@@ -82,18 +88,17 @@ async function checkSlotAvailable  (req,res) {
     }
 }
 
-// function removeSlotBySlotNumber(slotNumber) { 
-//   for( var i = 0; i < carSlotsList.length; i++){ 
-//     if ( carSlotsList[i].slotNumber === slotNumber) { 
-//       carSlotsList.splice(i, 1); 
-//     } 
-//   }
-// }
+function removeSlotBySlotNumber(slotNumber) { 
+  for( var i = 0; i < carSlotsList.length; i++){ 
+    if ( carSlotsList[i].slotNumber === slotNumber) { 
+      carSlotsList.splice(i, 1); 
+    } 
+  }
+}
 
-// function removeSlotByCarNumber(carNumber) { 
-//
-// }
 
+
+//############## Get Cars Route
 
 
   exports.getCars = async (req, res) => {  
@@ -103,6 +108,9 @@ async function checkSlotAvailable  (req,res) {
     });
   };
 
+
+
+//############## Get Car By Slot Number Route
   exports.getCarBySlotNumber = async (req, res) => {  
     var slotNumber = req.body.slotNumber;
 
