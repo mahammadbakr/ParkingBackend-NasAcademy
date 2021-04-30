@@ -1,29 +1,90 @@
 # Nas-Academy-Test
 
-Foobar is a Python library for dealing with word pluralization.
+
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+#### 1-  [npm](https://www.npmjs.com/package/npm) 
+Used to run and install dependencies.
 
-```bash
-pip install foobar
+#### 2- install dependencies 
+type this command on terminal of existing project folder.
+
+```node
+npm install
 ```
 
-## Usage
+#### 3- run project
+you can use these two ways for starting the project.
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```node
+npm start
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+```node
+node App.js
+```
 
-Please make sure to update tests as appropriate.
+## Environment Variables 
+There is some variables which possible to change before it is project starts, 
+you can modify them as you like, which changes some functionality inside the project during it works...
+
+#### Locate file:
+Find a file named *".env"* in project folder. There is 4 variables inside the file:
+- *Port* : the project will running on the value of this variable port.
+- *SlotSize* : Size of Slot Cars, Which mean number of cars possible to save in the slots.
+- *Seconds* : How many seconds will be used for timeout of the requests for the rate limit.
+- *MaxRequests* : How many request to be per selected seconds for rate limiter of requests.
+
+
+
+## Endpoints
+
+*Note:* you can get full documentation of endpoints [here](https://documenter.getpostman.com/view/10416484/TzRLkW5H).
+
+- Park a new car - route
+```
+POST 
+
+url: http://127.0.0.1:8080/api/v1/park
+
+body: { "carNumber":"12345" }
+```
+
+- UnPark a car - route
+```
+POST 
+
+url: http://127.0.0.1:8080/api/v1/unpark
+
+body: { "slotNumber":5 }
+```
+
+- All cars - route
+```
+GET 
+
+url: http://127.0.0.1:8080/api/v1/cars
+```
+
+- Car by slot number - route
+```
+GET 
+
+url: http://127.0.0.1:8080/api/v1/carbyslot
+
+body: { "slotNumber":2 }
+```
+
+
+##### By: [Mohammed Bakr](https://github.com/mahammadbakr)
+
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[ISC License](https://choosealicense.com/licenses/mit/)
+
+Copyright (c) [2021], [[Mohammed Bakr](https://github.com/mahammadbakr)]
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
