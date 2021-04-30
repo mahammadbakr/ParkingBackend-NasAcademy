@@ -1,8 +1,14 @@
 const http = require('http');
 const express=require('express')
+var bodyParser = require('body-parser');
 const rateLimitHandler = require("./RateHandling/RateLimitHandler");
 
 const app=express();
+
+
+//// Handle Body Psrsing
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 ////Handle Limit Rates
 const limiter = rateLimitHandler({});
