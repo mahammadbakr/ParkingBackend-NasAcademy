@@ -4,7 +4,10 @@ class CarSlot {
         this.carNumber = '';
       };
       
-    getSlot = function() {
+    getCarSlot = function() {
+        return {"Slot Number":slotNumber, "Car Number":carNumber};
+    };
+    getSlotNumber = function() {
         return this.slotNumber;
     };
     getCarNumber = function() {
