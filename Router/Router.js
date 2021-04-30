@@ -9,6 +9,4 @@ router
     .post('/api/v1/unpark', unParkCar)
     .get('/api/v1/cars', getCars)
 
-
-
 module.exports = router
