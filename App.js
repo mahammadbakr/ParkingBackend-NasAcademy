@@ -2,9 +2,9 @@ const http = require('http');
 const express=require('express')
 var bodyParser = require('body-parser');
 const rateLimitHandler = require("./RateHandling/RateLimitHandler");
+require('dotenv').config({ path: './.env' }); //environment variable 
 
 const app=express();
-
 
 //// Handle Body Psrsing
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,7 +18,7 @@ app.use(limiter);
 const router=require('./Router/Router')
 app.use('',router)
 
-const port = 8080;
+const port = process.env.Port;
 
 app.listen(port, () => {
   console.log(`Server running at Port: ${port}/`);

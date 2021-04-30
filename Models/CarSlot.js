@@ -1,26 +1,26 @@
 class CarSlot {
     constructor() {
-        this.slot = '';
+        this.slotNumber = '';
         this.carNumber = '';
       };
       
     getSlot = function() {
-        return this.slot;
+        return this.slotNumber;
     };
     getCarNumber = function() {
         return this.carNumber;
     };
     setSlot = function(value) {
-        this.slot= value;
+        this.slotNumber= value;
     };
     setCarNumber= function(value) {
         this.carNumber= value;
     };
 
   }
-  module.exports = function(slot,carNumber) {
+  module.exports = function(slotNumber,carNumber) {
     var instance = new CarSlot();
-    instance.slot=slot;
+    instance.slotNumber=slotNumber;
     instance.carNumber=carNumber;
     return instance;
   };
