@@ -1,0 +1,17 @@
+{
+  "name": "parking-backend-nas-academy",
+  "version": "1.0.0",
+  "description": "Here it is Tests for Nas Academy Parking Backend ...",
+  "main": "node App.js",
+  "scripts": {
+    "test": "node App.js",
+    "start": "node App.js"
+  },
+  "author": "Mohammed Bakr",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
