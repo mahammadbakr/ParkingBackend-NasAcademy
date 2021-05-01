@@ -20,14 +20,18 @@ exports.parkNewCar = async (req, res) =>{
   async function checkSlotAvailable  (req,res) {
         let slotNumber = Math.floor(Math.random() * process.env.Slot_Size *20);
         const carNumber =  req.body.carNumber;
+        const carOwner =  req.body.carOwner;
+        const ipAddress = req.connection.remoteAddress;
 
         if (slotNumber != process.env.Slot_Size) {
-          carSlotsList.push(CarSlot(slotNumber,carNumber));
+          const newCar=new CarSlot(slotNumber,carNumber,ipAddress,carOwner);
+          carSlotsList.push(newCar);
 
           res.status(200).json({
             status: 200,
             message:"new car added Successfully !",
-            slotNumber:"Your Slot Number is: " + slotNumber
+            slotNumber:"Your Slot Number is: " + slotNumber,
+            data: newCar
           });
         }else{
           res.status(400).json({
