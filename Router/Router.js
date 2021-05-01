@@ -8,6 +8,6 @@ router
     .post('/park', parkNewCar)
     .post('/unpark', unParkACar)
     .get('/cars', getCars)
-    .get('/arbyslot',getCarBySlotNumber)
+    .get('/carbyslot',getCarBySlotNumber)
 
 module.exports = router

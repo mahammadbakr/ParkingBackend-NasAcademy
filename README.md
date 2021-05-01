@@ -51,6 +51,31 @@ url: http://127.0.0.1:8080/api/v1/park
 body: { "carNumber":"12345" }
 ```
 
+ Successfull Respone: 
+```
+
+{
+    "status": 200,
+    "message": "new car added Successfully !",
+    "slotNumber": "Your Slot Number is: XX",
+    "data": {
+        "slotNumber": XX,
+        "carNumber": 12345,
+        "ipAddress": "127.0.0.1",
+        "carOwner": "Mohammed"
+    }
+}
+```
+Failed Respone: 
+```
+{
+  status: 400,
+  message:"Sorry, All slots now is fulled, We only Provide 
+  "XX" slots for now!",
+}
+```
+
+
 - UnPark a car - route
 ```
 POST 
@@ -60,12 +85,45 @@ url: http://127.0.0.1:8080/api/v1/unpark
 body: { "slotNumber":5 }
 ```
 
+Successfull Respone: 
+```
+{
+    "status": 200,
+    "message": "UnPark the car had been Successfully !"
+}
+```
+ Failed Respone: 
+ ```
+{
+    "status": 400,
+    "message": "This Slot Number is empty !"
+}
+```
+
+
 - All cars - route
 ```
 GET 
 
 url: http://127.0.0.1:8080/api/v1/cars
 ```
+
+Successfull Respone: 
+
+```
+{
+    "status": 200,
+    "data": [
+        {
+            "slotNumber": XXX,
+            "carNumber": 12345,
+            "ipAddress": "127.0.0.1",
+            "carOwner": "Mohammed"
+        }
+    ]
+}
+```
+
 
 - Car by slot number - route
 ```
@@ -74,6 +132,21 @@ GET
 url: http://127.0.0.1:8080/api/v1/carbyslot
 
 body: { "slotNumber":2 }
+```
+Successfull Respone: 
+
+```
+{
+    "status": 200,
+    "data": [
+        {
+            "slotNumber": XXX,
+            "carNumber": 12345,
+            "ipAddress": "127.0.0.1",
+            "carOwner": "Mohammed"
+        }
+    ]
+}
 ```
 
 

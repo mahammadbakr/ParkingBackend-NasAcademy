@@ -82,7 +82,7 @@ exports.parkNewCar = async (req, res) =>{
   exports.getCars = async (req, res) => {  
     res.status(200).json({
       status: 200,
-      "data":carSlotsList,
+      data:carSlotsList,
     });
   };
 
@@ -92,6 +92,6 @@ exports.parkNewCar = async (req, res) =>{
 
     res.status(200).json({
       status: 200,
-      "Car":carSlotsList[slotNumber],
+      data: carSlotsList.filter(i => i.slotNumber ==slotNumber),
     });
   };
