@@ -1,5 +1,5 @@
 const express=require('express')
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const rateLimitHandler = require("./RateHandling/RateLimitHandler");
 require('dotenv').config({ path: './.env' }); 
 

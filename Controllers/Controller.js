@@ -80,18 +80,35 @@ exports.parkNewCar = async (req, res) =>{
 
 
   exports.getCars = async (req, res) => {  
-    res.status(200).json({
-      status: 200,
-      data:carSlotsList,
-    });
+    try {
+      res.status(200).json({
+        status: 200,
+        data:carSlotsList,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({
+        status: 400,
+        message: "Error Get Cars !",
+        error,
+      });
+    }
   };
 
 
   exports.getCarBySlotNumber = async (req, res) => {  
-    var slotNumber = req.body.slotNumber;
-
+    try {
+    const slotNumber = req.body.slotNumber;
     res.status(200).json({
       status: 200,
       data: carSlotsList.filter(i => i.slotNumber ==slotNumber),
     });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({
+        status: 400,
+        message: "Error Get Car by slot number !",
+        error,
+      });
+    }
   };
