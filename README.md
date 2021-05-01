@@ -42,7 +42,7 @@ Find a file named *".env"* in project folder. There is 4 variables inside the fi
 
 *Note:* you can get full documentation of endpoints [here](https://documenter.getpostman.com/view/10416484/TzRLkW5H).
 
-- Park a new car - route
+- ### Park a new car - route
 ```
 POST 
 
@@ -76,7 +76,7 @@ Failed Respone:
 ```
 
 
-- UnPark a car - route
+- ### UnPark a car - route
 ```
 POST 
 
@@ -101,7 +101,7 @@ Successfull Respone:
 ```
 
 
-- All cars - route
+- ### All cars - route
 ```
 GET 
 
@@ -125,7 +125,7 @@ Successfull Respone:
 ```
 
 
-- Car by slot number - route
+- ### Car by slot number - route
 ```
 GET 
 
